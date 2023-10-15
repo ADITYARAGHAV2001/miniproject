@@ -9,8 +9,8 @@ const Drawing = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        canvas.width = 500;
-        canvas.height = 500;
+        canvas.width = 300;
+        canvas.height = 300;
 
         const context = canvas.getContext("2d");
         context.lineCap = "round";
@@ -45,12 +45,9 @@ const Drawing = () => {
         setIsDrawing(false);
     };
 
-    const setToDraw = () => {
-        contextRef.current.globalCompositeOperation = 'source-over';
-    };
-
-    const setToErase = () => {
-        contextRef.current.globalCompositeOperation = 'destination-out';
+    const clearCanvas = () => {
+        const context = contextRef.current;
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     };
 
     const saveImageToLocal = (event) => {
@@ -70,13 +67,9 @@ const Drawing = () => {
               onMouseLeave={stopDrawing}>
           </canvas>
           <div>
-              <button onClick={setToDraw}>
-                  Draw
-              </button>
-              <button onClick={setToErase}>
-                  Erase
-              </button>
-              <a id="download_image_link" href="download_link" onClick={saveImageToLocal}>Download Image</a>
+              <button type="button" className="btn btn-primary mx-2" onClick={clearCanvas}>Clear Canvas</button>
+              <button type="button" className="btn btn-primary mx-2"><a id="download_image_link" href="download_link" style = {{color: 'white', textDecoration: 'none'}}onClick={saveImageToLocal}>Download Image</a></button>
+
           </div>
     </div>
   )
