@@ -1,7 +1,7 @@
 import './DrawingCanvas.css';
 import { useEffect, useRef, useState } from 'react';
 
-const DrawingCanvas = () => {
+const Drawing = () => {
     const canvasRef = useRef(null);
     const contextRef = useRef(null);
 
@@ -60,26 +60,26 @@ const DrawingCanvas = () => {
         link.setAttribute('href', image);
     };
 
-    return (
-        <div>
-            <canvas className="canvas-container"
-                ref={canvasRef}
-                onMouseDown={startDrawing}
-                onMouseMove={draw}
-                onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}>
-            </canvas>
-            <div>
-                <button onClick={setToDraw}>
-                    Draw
-                </button>
-                <button onClick={setToErase}>
-                    Erase
-                </button>
-                <a id="download_image_link" href="download_link" onClick={saveImageToLocal}>Download Image</a>
-            </div>
-        </div>
-    )
+  return (
+    <div>
+          <canvas className="canvas-container"
+              ref={canvasRef}
+              onMouseDown={startDrawing}
+              onMouseMove={draw}
+              onMouseUp={stopDrawing}
+              onMouseLeave={stopDrawing}>
+          </canvas>
+          <div>
+              <button onClick={setToDraw}>
+                  Draw
+              </button>
+              <button onClick={setToErase}>
+                  Erase
+              </button>
+              <a id="download_image_link" href="download_link" onClick={saveImageToLocal}>Download Image</a>
+          </div>
+    </div>
+  )
 }
 
-export default DrawingCanvas;
+export default Drawing

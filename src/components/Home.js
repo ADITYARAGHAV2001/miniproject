@@ -1,5 +1,5 @@
 import React from 'react'
-import DrawingCanvas from './DrawingCanvas'
+import DrawingCanvas from './Drawing'
 
 const Home = () => {
   return (
