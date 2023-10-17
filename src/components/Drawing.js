@@ -58,7 +58,8 @@ const Drawing = () => {
     };
 
   return (
-    <div>
+    <div className='d-flex'>
+        <div>
           <canvas className="canvas-container"
               ref={canvasRef}
               onMouseDown={startDrawing}
@@ -71,6 +72,11 @@ const Drawing = () => {
               <button type="button" className="btn btn-primary mx-2"><a id="download_image_link" href="download_link" style = {{color: 'white', textDecoration: 'none'}}onClick={saveImageToLocal}>Download Image</a></button>
 
           </div>
+        </div>
+
+        <div className='container2'>
+            Here digitally converted number will be shown
+        </div>
     </div>
   )
 }
